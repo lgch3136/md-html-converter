@@ -154,8 +154,19 @@ htmlRender.addEventListener('input', () => updateInfo());
 
 // MD → HTML：把 MD 源码转成 HTML，右侧显示渲染预览
 btnSyncMdToHtml.addEventListener('click', () => {
-  const md = mdSource.value.trim();
+  // 关键修复：根据当前模式获取 MD 内容
+  // 阅读模式 → 从 contenteditable div 提取；源码模式 → 从 textarea 读取
+  let md;
+  if (paneModes.md === 'render') {
+    md = extractMdFromRender(mdRender);
+  } else {
+    md = mdSource.value;
+  }
+  md = md.trim();
   if (!md) { toast('⚠️ 请先在左侧输入 Markdown 内容'); return; }
+
+  // 同步 mdSource，确保 textarea 也是最新值
+  mdSource.value = md;
 
   const html = marked.parse(md);
 
@@ -176,8 +187,18 @@ btnSyncMdToHtml.addEventListener('click', () => {
 
 // HTML → MD
 btnSyncHtmlToMd.addEventListener('click', () => {
-  const html = htmlSource.value.trim();
+  // 关键修复：根据当前模式获取 HTML 内容
+  let html;
+  if (paneModes.html === 'render') {
+    html = htmlRender.innerHTML;
+  } else {
+    html = htmlSource.value;
+  }
+  html = html.trim();
   if (!html) { toast('⚠️ 请先在右侧输入 HTML 内容'); return; }
+
+  // 同步 htmlSource，确保 textarea 也是最新值
+  htmlSource.value = html;
 
   const md = turndown.turndown(html);
 
