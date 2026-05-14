@@ -1,0 +1,22 @@
+{
+  "name": "md-html-converter",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Markdown ↔ HTML 双向转换 + 富媒体编辑器，支持导入导出 PDF/Word/HTML/MD/TXT，一键部署 Vercel",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel src/index.html --port 1234 --open",
+    "build": "parcel build src/index.html --dist-dir dist --public-url ./"
+  },
+  "dependencies": {
+    "docx": "^8.5.0",
+    "mammoth": "^1.12.0",
+    "marked": "^15.0.0",
+    "turndown": "^7.2.0"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  }
+}
