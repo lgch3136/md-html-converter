@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MD ↔ HTML 编辑器 - Markdown转HTML | 在线格式转换工具</title>
-  <meta name="description" content="免费在线 Markdown 转 HTML 双向转换工具，支持 PDF、Word、HTML、MD、TXT 导入导出，富媒体编辑器，粘贴图片/拖入文件，即转即预览。" />
-  <meta name="keywords" content="Markdown转HTML, HTML转Markdown, MD转HTML, 在线转换, 格式转换, markdown编辑器, html编辑器, PDF导出, Word导出, 文档转换" />
+  <title>MD ↔ HTML 编辑器 - 免费在线 Markdown 转换工具</title>
+  <meta name="description" content="免费在线 Markdown ↔ HTML 双向转换工具，支持富文本编辑、PDF/Word/HTML/MD/TXT 导入导出，粘贴图片、拖入文件，即转即预览。无需安装，打开即用。" />
+  <meta name="keywords" content="Markdown转HTML, HTML转Markdown, 在线转换, 格式转换, markdown编辑器, html编辑器, PDF导出, Word导出, 文档转换" />
   <meta name="author" content="MD-HTML Converter" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://md-html-converter-two.vercel.app" />
 
   <!-- Open Graph / 社交分享 -->
-  <meta property="og:title" content="MD ↔ HTML 编辑器 - Markdown转HTML在线工具" />
+  <meta property="og:title" content="MD ↔ HTML 编辑器 - 免费在线 Markdown 转换工具" />
   <meta property="og:description" content="免费在线 Markdown ↔ HTML 双向转换，支持富媒体编辑，一键导出 PDF/Word/HTML/MD/TXT。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://md-html-converter-two.vercel.app" />
@@ -20,264 +20,165 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MD ↔ HTML 编辑器 - 在线Markdown格式转换" />
+  <meta name="twitter:title" content="MD ↔ HTML 编辑器 - 在线 Markdown 格式转换" />
   <meta name="twitter:description" content="免费在线 Markdown ↔ HTML 双向转换工具，支持导入导出多种格式。" />
 
+  <link rel="stylesheet" href="./style.css" />
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7632558285398569" crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <header class="toolbar">
-    <h1 class="logo">📄 MD ↔ HTML</h1>
-    <div class="tool-group">
-      <!-- 导入按钮 + 下拉菜单 -->
-      <div class="dropdown">
-        <button id="btnImport" class="btn btn-secondary" title="导入文件">📥 导入</button>
-        <div id="importMenu" class="dropdown-menu hidden">
-          <button class="menu-item" data-format="md">📝 Markdown (.md)</button>
-          <button class="menu-item" data-format="html">🌐 HTML (.html)</button>
-          <button class="menu-item" data-format="txt">📃 纯文本 (.txt)</button>
-          <button class="menu-item" data-format="word">📘 Word (.docx)</button>
-        </div>
-      </div>
-      <!-- 隐藏的文件 input -->
-      <input type="file" id="importInput" hidden />
 
-      <!-- 导出按钮 + 下拉菜单 -->
-      <div class="dropdown">
-        <button id="btnExport" class="btn btn-success" title="导出文件">📤 导出</button>
-        <div id="exportMenu" class="dropdown-menu hidden">
-          <button class="menu-item" data-format="pdf">📄 PDF (.pdf)</button>
-          <button class="menu-item" data-format="word">📘 Word (.docx)</button>
-          <button class="menu-item" data-format="html">🌐 独立 HTML (.html)</button>
-          <button class="menu-item" data-format="md">📝 Markdown (.md)</button>
-          <button class="menu-item" data-format="txt">📃 纯文本 (.txt)</button>
-        </div>
-      </div>
-
-      <span class="sep"></span>
-      <button id="btnClear" class="btn btn-danger" title="清空所有内容">🗑️ 清空</button>
-    </div>
-    <div class="file-info" id="fileInfo">就绪</div>
+  <!-- ===== 顶部导航 ===== -->
+  <header class="topbar">
+    <a href="./editor.html" class="topbar-home">📄 进入编辑器</a>
+    <span class="topbar-title">MD ↔ HTML 转换器</span>
+    <a href="./editor.html" class="topbar-btn">打开工具 →</a>
   </header>
 
-  <!-- 顶部横幅广告 -->
-  <div class="ad-container ad-top">
-    <ins class="adsbygoogle"
-      style="display:block"
-      data-ad-client="ca-pub-7632558285398569"
-      data-ad-slot="1234567890"
-      data-ad-format="horizontal"
-      data-full-width-responsive="true"></ins>
-  </div>
+  <main class="page page-home">
 
-  <main class="editor-area">
-
-    <!-- ===== 左侧：Markdown ===== -->
-    <section class="pane pane-left">
-      <div class="pane-header">
-        <span>📝 Markdown</span>
-        <div class="pane-mode-btns">
-          <button class="pane-mode-btn active" data-pane="md" data-mode="render">阅读</button>
-          <button class="pane-mode-btn" data-pane="md" data-mode="source">源码</button>
-        </div>
+    <!-- ===== Hero 区域 ===== -->
+    <section class="hero">
+      <h1>📄 MD ↔ HTML 编辑器</h1>
+      <p class="hero-desc">强大的 Markdown ↔ HTML 双向转换工具，富媒体编辑，即转即预览，一键导出多种格式。</p>
+      <div class="hero-stats">
+        <span>🔒 数据本地处理</span>
+        <span>⚡ 实时转换</span>
+        <span>📱 响应式布局</span>
+        <span>🆓 完全免费</span>
       </div>
-
-      <!-- MD 工具栏 -->
-      <div class="format-toolbar" id="mdToolbar">
-        <button class="fmt-btn" data-fmt="bold" title="加粗 Ctrl+B"><b>B</b></button>
-        <button class="fmt-btn" data-fmt="italic" title="斜体 Ctrl+I"><i>I</i></button>
-        <button class="fmt-btn" data-fmt="underline" title="下划线"><u>U</u></button>
-        <button class="fmt-btn" data-fmt="strike" title="删除线"><s>S</s></button>
-        <span class="fmt-sep"></span>
-        <button class="fmt-btn" data-fmt="h1" title="一级标题">H1</button>
-        <button class="fmt-btn" data-fmt="h2" title="二级标题">H2</button>
-        <button class="fmt-btn" data-fmt="h3" title="三级标题">H3</button>
-        <span class="fmt-sep"></span>
-        <button class="fmt-btn" data-fmt="ul" title="无序列表">•</button>
-        <button class="fmt-btn" data-fmt="ol" title="有序列表">1.</button>
-        <button class="fmt-btn" data-fmt="checklist" title="任务列表">☐</button>
-        <span class="fmt-sep"></span>
-        <button class="fmt-btn" data-fmt="blockquote" title="引用">❝</button>
-        <button class="fmt-btn" data-fmt="link" title="链接">🔗</button>
-        <button class="fmt-btn" data-fmt="hr" title="分割线">—</button>
-        <span class="fmt-sep"></span>
-        <button class="fmt-btn" data-fmt="insertImage" title="插入图片">🖼️</button>
-        <button class="fmt-btn" data-fmt="insertVideo" title="插入视频">🎬</button>
-        <button class="fmt-btn" data-fmt="insertTable" title="插入表格">📊</button>
-        <button class="fmt-btn" data-fmt="insertCodeBlock" title="代码块">💻</button>
-        <span class="fmt-sep"></span>
-        <button class="fmt-btn" data-fmt="undo" title="撤销">↩</button>
-        <button class="fmt-btn" data-fmt="redo" title="重做">↪</button>
-        <label class="fmt-btn" title="上传图片/文件" style="cursor:pointer;">📂
-          <input type="file" id="imageInputMd" accept="image/*,.mp4,.webm,.ogg,.md,.txt,.html" multiple hidden />
-        </label>
-      </div>
-
-      <!-- MD 阅读模式 -->
-      <div id="mdRenderPane" class="render-pane" contenteditable="true" spellcheck="false"
-        data-placeholder="在左侧输入 Markdown，或粘贴图片 / 拖入文件…"></div>
-
-      <!-- MD 源码模式 -->
-      <textarea id="mdSourcePane" class="source-pane hidden" spellcheck="false"
-        placeholder="输入 Markdown 源码…&#10;&#10;支持 Ctrl+V 粘贴图片 / 拖入文件"></textarea>
+      <a href="./editor.html" class="hero-cta">🚀 立即使用编辑器</a>
     </section>
 
-    <!-- ===== 中间：互转按钮 ===== -->
-    <div class="center-bar">
-      <button id="btnSyncMdToHtml" class="sync-btn" title="Markdown → HTML">
-        <span class="sync-arrow">→</span>
-        <span class="sync-label">转 HTML</span>
-      </button>
-      <div class="sync-divider"></div>
-      <button id="btnSyncHtmlToMd" class="sync-btn" title="HTML → Markdown">
-        <span class="sync-arrow">←</span>
-        <span class="sync-label">转 MD</span>
-      </button>
-
-      <!-- 中间竖版广告 -->
-      <div class="ad-container ad-side" style="margin-top:16px;">
-        <ins class="adsbygoogle"
-          style="display:block"
-          data-ad-client="ca-pub-7632558285398569"
-          data-ad-slot="0987654321"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
+    <!-- ===== 功能介绍 ===== -->
+    <section class="features-section">
+      <h2>✨ 核心功能</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>双向转换</h3>
+          <p>Markdown 转 HTML、HTML 转 Markdown，一键切换，所见即所得。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>富文本编辑</h3>
+          <p>支持加粗、斜体、标题、列表、引用、代码块、表格、图片、视频等完整富文本操作。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📤</div>
+          <h3>多格式导出</h3>
+          <p>支持导出为 PDF、Word 文档、独立 HTML、Markdown 原文、纯文本，满足各种场景需求。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📥</div>
+          <h3>多格式导入</h3>
+          <p>支持导入 .md、.html、.txt、.docx 文件，也可粘贴图片、拖拽文件到编辑区。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎥</div>
+          <h3>视频嵌入</h3>
+          <p>支持粘贴 B 站、YouTube 视频链接，自动嵌入 iframe 播放器。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⌨️</div>
+          <h3>快捷键支持</h3>
+          <p>Ctrl+B 加粗、Ctrl+I 斜体、Ctrl+S 转换等常用快捷键，操作更高效。</p>
+        </div>
       </div>
+    </section>
+
+    <!-- ===== 使用场景 ===== -->
+    <section class="scenarios-section">
+      <h2>📋 使用场景</h2>
+      <div class="scenarios-grid">
+        <div class="scenario-card">
+          <div class="scenario-icon">📰</div>
+          <h3>公众号 / 知乎文章编辑</h3>
+          <p>用 Markdown 写好文章，一键转换为 HTML，粘贴到公众号或知乎后台即可发布。</p>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon">📊</div>
+          <h3>技术文档撰写</h3>
+          <p>支持代码高亮、表格、引用等语法，适合编写 API 文档和技术博客。</p>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon">📧</div>
+          <h3>邮件与报告</h3>
+          <p>将 Markdown 编写的报告转换为格式精美的 HTML 邮件正文。</p>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-icon">📚</div>
+          <h3>学习笔记整理</h3>
+          <p>用 Markdown 记笔记，导出为 PDF 或 Word 保存归档。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 使用方法 ===== -->
+    <section class="howto-section">
+      <h2>🚀 使用方法</h2>
+      <div class="howto-steps">
+        <div class="howto-step">
+          <div class="step-number">1</div>
+          <h3>打开编辑器</h3>
+          <p>点击上方「打开工具」按钮，进入在线编辑器页面。</p>
+        </div>
+        <div class="howto-step">
+          <div class="step-number">2</div>
+          <h3>输入或导入内容</h3>
+          <p>在左侧输入 Markdown 源码，或通过导入按钮上传 .md、.html、.txt、.docx 文件。</p>
+        </div>
+        <div class="howto-step">
+          <div class="step-number">3</div>
+          <h3>实时预览与转换</h3>
+          <p>点击中间的「转 HTML」按钮，右侧即时显示渲染效果。支持自由切换阅读/源码模式。</p>
+        </div>
+        <div class="howto-step">
+          <div class="step-number">4</div>
+          <h3>导出成果</h3>
+          <p>选择 PDF、Word、HTML 等格式导出，也可复制 HTML 源码到其他平台使用。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 技术说明 ===== -->
+    <section class="tech-section">
+      <h2>🔧 技术细节</h2>
+      <div class="tech-info">
+        <p>本工具基于纯前端技术构建，所有数据处理均在浏览器本地完成，<strong>不会上传任何用户数据到服务器</strong>。</p>
+        <ul class="tech-list">
+          <li>使用 <code>marked</code> 库进行 Markdown → HTML 转换</li>
+          <li>使用 <code>turndown</code> 库进行 HTML → Markdown 转换</li>
+          <li>使用 <code>html2pdf.js</code> 实现 PDF 导出</li>
+          <li>使用 <code>docx</code> 库实现 Word 导出</li>
+          <li>支持图片粘贴（Ctrl+V）和文件拖拽上传</li>
+          <li>支持 Bilibili / YouTube 视频链接自动嵌入</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 广告 ===== -->
+    <div class="ad-container ad-home" style="max-width:960px;margin:24px auto;padding:0 20px;">
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-7632558285398569"
+        data-ad-slot="1111111111"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
     </div>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-    <!-- ===== 右侧：HTML ===== -->
-    <section class="pane pane-right">
-      <div class="pane-header">
-        <span>🌐 HTML</span>
-        <div class="pane-mode-btns">
-          <button class="pane-mode-btn active" data-pane="html" data-mode="render">阅读</button>
-          <button class="pane-mode-btn" data-pane="html" data-mode="source">源码</button>
-        </div>
+    <!-- ===== 页脚 ===== -->
+    <footer class="footer">
+      <p>© 2026 MD-HTML 转换器 · 数据仅在你的浏览器中处理 · <a href="./editor.html">打开编辑器</a></p>
+      <div class="footer-links" style="margin-top:8px;font-size:.75rem;">
+        <a href="./privacy.html" style="color:#8b949e;margin:0 8px;">隐私政策</a>
+        <a href="./ad-disclosure.html" style="color:#8b949e;margin:0 8px;">广告声明</a>
       </div>
-
-      <!-- HTML 工具栏 -->
-      <div class="format-toolbar hidden" id="htmlToolbar">
-        <button class="fmt-btn" data-fmt="bold" title="加粗"><b>B</b></button>
-        <button class="fmt-btn" data-fmt="italic" title="斜体"><i>I</i></button>
-        <button class="fmt-btn" data-fmt="underline" title="下划线"><u>U</u></button>
-        <span class="fmt-sep"></span>
-        <button class="fmt-btn" data-fmt="h1" title="一级标题">H1</button>
-        <button class="fmt-btn" data-fmt="h2" title="二级标题">H2</button>
-        <button class="fmt-btn" data-fmt="h3" title="三级标题">H3</button>
-        <span class="fmt-sep"></span>
-        <button class="fmt-btn" data-fmt="ul" title="无序列表">•</button>
-        <button class="fmt-btn" data-fmt="ol" title="有序列表">1.</button>
-        <span class="fmt-sep"></span>
-        <button class="fmt-btn" data-fmt="blockquote" title="引用">❝</button>
-        <button class="fmt-btn" data-fmt="link" title="链接">🔗</button>
-        <button class="fmt-btn" data-fmt="hr" title="分割线">—</button>
-        <span class="fmt-sep"></span>
-        <button class="fmt-btn" data-fmt="insertImage" title="插入图片">🖼️</button>
-        <button class="fmt-btn" data-fmt="insertVideo" title="插入视频">🎬</button>
-        <button class="fmt-btn" data-fmt="insertTable" title="插入表格">📊</button>
-        <button class="fmt-btn" data-fmt="codeInline" title="行内代码">&lt;/&gt;</button>
-        <span class="fmt-sep"></span>
-        <button class="fmt-btn" data-fmt="undo" title="撤销">↩</button>
-        <button class="fmt-btn" data-fmt="redo" title="重做">↪</button>
-        <label class="fmt-btn" title="上传图片" style="cursor:pointer;">📂
-          <input type="file" id="imageInputHtml" accept="image/*,.mp4,.webm,.ogg,.html" multiple hidden />
-        </label>
-      </div>
-
-      <!-- HTML 阅读模式 -->
-      <div id="htmlRenderPane" class="render-pane" contenteditable="true" spellcheck="false"
-        data-placeholder="右侧显示 HTML 渲染结果…"></div>
-
-      <!-- HTML 源码模式 -->
-      <textarea id="htmlSourcePane" class="source-pane hidden" spellcheck="false"
-        placeholder="输入或粘贴 HTML 源码…&#10;&#10;支持 Ctrl+V 粘贴图片 / 拖入文件"></textarea>
-    </section>
+    </footer>
 
   </main>
 
-  <!-- ===== 弹窗 ===== -->
-  <!-- 插入视频 -->
-  <div class="modal-overlay hidden" id="videoModal">
-    <div class="modal">
-      <h3>🎬 插入视频</h3>
-      <p class="modal-desc">支持 B站 / YouTube / 通用 iframe URL</p>
-      <input type="text" id="videoUrl" class="modal-input" placeholder="https://b23.tv/xxx 或 https://www.youtube.com/watch?v=xxx" />
-      <div class="modal-buttons">
-        <button class="btn btn-primary" id="btnConfirmVideo">插入</button>
-        <button class="btn btn-secondary" id="btnCancelVideo">取消</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 插入表格 -->
-  <div class="modal-overlay hidden" id="tableModal">
-    <div class="modal">
-      <h3>📊 插入表格</h3>
-      <div class="modal-row"><label>行数：</label><input type="number" id="tableRows" value="3" min="2" max="20" /></div>
-      <div class="modal-row"><label>列数：</label><input type="number" id="tableCols" value="3" min="1" max="10" /></div>
-      <div class="modal-buttons">
-        <button class="btn btn-primary" id="btnConfirmTable">插入</button>
-        <button class="btn btn-secondary" id="btnCancelTable">取消</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 插入代码块 -->
-  <div class="modal-overlay hidden" id="codeBlockModal">
-    <div class="modal">
-      <h3>💻 插入代码块</h3>
-      <input type="text" id="codeLang" class="modal-input" placeholder="语言（如 js / python / css）" />
-      <textarea id="codeContent" class="modal-textarea" placeholder="输入代码…"></textarea>
-      <div class="modal-buttons">
-        <button class="btn btn-primary" id="btnConfirmCodeBlock">插入</button>
-        <button class="btn btn-secondary" id="btnCancelCodeBlock">取消</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 插入链接 -->
-  <div class="modal-overlay hidden" id="linkModal">
-    <div class="modal">
-      <h3>🔗 插入链接</h3>
-      <input type="text" id="linkText" class="modal-input" placeholder="链接文字" />
-      <input type="text" id="linkUrl" class="modal-input" placeholder="https://…" />
-      <div class="modal-buttons">
-        <button class="btn btn-primary" id="btnConfirmLink">插入</button>
-        <button class="btn btn-secondary" id="btnCancelLink">取消</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 插入图片 -->
-  <div class="modal-overlay hidden" id="imageModal">
-    <div class="modal">
-      <h3>🖼️ 插入图片</h3>
-      <input type="file" id="imgFileInput" accept="image/*" class="modal-input" style="padding:4px;" />
-      <div class="modal-buttons">
-        <button class="btn btn-primary" id="btnConfirmImage">插入</button>
-        <button class="btn btn-secondary" id="btnCancelImage">取消</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 底部横幅广告 -->
-  <div class="ad-container ad-bottom">
-    <ins class="adsbygoogle"
-      style="display:block"
-      data-ad-client="ca-pub-7632558285398569"
-      data-ad-slot="1122334455"
-      data-ad-format="horizontal"
-      data-full-width-responsive="true"></ins>
-  </div>
-
-  <script type="module" src="./app.js"></script>
-
-  <!-- Google AdSense 初始化 -->
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
 </body>
 </html>
