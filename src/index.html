@@ -158,14 +158,158 @@
       </div>
     </section>
 
+    <!-- ===== Markdown 语法速查表 ===== -->
+    <section class="syntax-section">
+      <h2>📖 Markdown 语法速查</h2>
+      <p class="section-intro">不熟悉 Markdown？以下是常用语法快速参考，帮助你快速上手编辑。</p>
+
+      <div class="syntax-grid">
+        <div class="syntax-card">
+          <h3>标题</h3>
+          <div class="syntax-example">
+            <code># 一级标题</code>
+            <code>## 二级标题</code>
+            <code>### 三级标题</code>
+          </div>
+          <p class="syntax-desc">使用 1~6 个 <code>#</code> 号标记不同级别标题，对应 HTML 的 h1~h6。</p>
+        </div>
+
+        <div class="syntax-card">
+          <h3>文字样式</h3>
+          <div class="syntax-example">
+            <code>**加粗文字**</code>
+            <code>*斜体文字*</code>
+            <code>~~删除线~~</code>
+            <code>`行内代码`</code>
+          </div>
+          <p class="syntax-desc">双星号加粗、单星号斜体、双波浪线删除。<code>`</code> 反引号包裹行内代码。</p>
+        </div>
+
+        <div class="syntax-card">
+          <h3>列表</h3>
+          <div class="syntax-example">
+            <code>- 无序项目一</code>
+            <code>- 无序项目二</code>
+            <code>1. 有序项目一</code>
+            <code>2. 有序项目二</code>
+            <code>- [ ] 待办任务</code>
+            <code>- [x] 已完成</code>
+          </div>
+          <p class="syntax-desc">用 <code>-</code> 或 <code>*</code> 创建无序列表，用数字加点创建有序列表。<code>- [ ]</code> 可创建任务清单。</p>
+        </div>
+
+        <div class="syntax-card">
+          <h3>引用</h3>
+          <div class="syntax-example">
+            <code>&gt; 这是一段引用文字</code>
+            <code>&gt; 可以多行</code>
+            <code>&gt;&gt; 嵌套引用</code>
+          </div>
+          <p class="syntax-desc">使用 <code>&gt;</code> 符号标记引用块，常用于摘录或强调。</p>
+        </div>
+
+        <div class="syntax-card">
+          <h3>链接与图片</h3>
+          <div class="syntax-example">
+            <code>[链接文字](https://example.com)</code>
+            <code>![图片描述](image-url)</code>
+          </div>
+          <p class="syntax-desc">方括号写显示文字，圆括号写 URL。图片语法前面多一个 <code>!</code>。编辑器也支持直接 Ctrl+V 粘贴图片。</p>
+        </div>
+
+        <div class="syntax-card">
+          <h3>代码块</h3>
+          <div class="syntax-example">
+            <code>```javascript</code>
+            <code>console.log('Hello');</code>
+            <code>```</code>
+          </div>
+          <p class="syntax-desc">使用三个反引号包裹代码，可在开头指定语言名称以获得语法高亮。</p>
+        </div>
+
+        <div class="syntax-card">
+          <h3>表格</h3>
+          <div class="syntax-example">
+            <code>| 姓名 | 年龄 |</code>
+            <code>|------|------|</code>
+            <code>| 张三 | 28 |</code>
+          </div>
+          <p class="syntax-desc">用 <code>|</code> 分隔列，第二行用 <code>---</code> 定义对齐方式。编辑器也支持可视化插入表格。</p>
+        </div>
+
+        <div class="syntax-card">
+          <h3>分割线</h3>
+          <div class="syntax-example">
+            <code>---</code>
+            <code>***</code>
+          </div>
+          <p class="syntax-desc">三个或以上 <code>-</code> 或 <code>*</code> 创建水平分割线。</p>
+        </div>
+      </div>
+
+      <div class="syntax-tip">
+        <p>💡 <strong>提示</strong>：如果你不想记语法，可以直接在编辑器中使用工具栏按钮进行可视化编辑——编辑器会自动生成对应的 Markdown 代码。</p>
+      </div>
+    </section>
+
+    <!-- ===== 常见问题 FAQ ===== -->
+    <section class="faq-section">
+      <h2>❓ 常见问题 FAQ</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>这个工具是免费的吗？</h3>
+          <p>是的，完全免费使用。我们通过非侵入式广告维持服务器和带宽成本，所有核心功能永久免费。无需注册、无需登录、无使用次数限制。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>我的数据安全吗？会上传到服务器吗？</h3>
+          <p>你的数据绝对安全。本工具所有数据处理均在浏览器本地完成——Markdown 转换、HTML 渲染、文件导入导出全部在客户端执行，<strong>绝不将你的内容上传到任何服务器</strong>。关闭标签页后所有数据自动清除。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Markdown 和 HTML 有什么区别？什么时候用哪个？</h3>
+          <p>Markdown 是一种轻量级标记语言，语法简单直观，适合快速写作（如博客、笔记、文档）。HTML 是网页的标准语言，功能更强大但语法复杂。一般情况下，日常写作推荐使用 Markdown；需要发布到网页、或需要复杂排版时，可以转换为 HTML。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>支持哪些文件格式的导入和导出？</h3>
+          <p>支持导入：Markdown (.md)、HTML (.html)、纯文本 (.txt)、Word (.docx)。支持导出：PDF (.pdf)、Word (.docx)、独立 HTML (.html)、Markdown (.md)、纯文本 (.txt)。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>可以插入图片和视频吗？</h3>
+          <p>可以。支持三种方式插入图片：粘贴板粘贴 (Ctrl+V)、拖拽文件到编辑区、工具栏上传按钮。视频方面，支持粘贴 Bilibili、YouTube 链接自动嵌入播放器。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>导出的 PDF 和 Word 格式排版会丢失吗？</h3>
+          <p>基本不会。导出功能会保留标题层级、加粗斜体、代码块高亮、表格、引用、图片、视频缩略图等格式。但复杂 CSS 样式可能无法完全保留——如需高度精确的排版，建议导出为 HTML 后在 Word 中打开。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>在手机上可以使用吗？</h3>
+          <p>可以。本工具采用响应式布局设计，自动适配桌面、平板和手机屏幕。在移动端编辑区域会切换为上下布局，方便使用。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>除了在线版本，有离线版本或浏览器扩展吗？</h3>
+          <p>目前仅提供在线版本。由于所有处理都在浏览器本地完成，你可以在首次加载后断网使用。未来会考虑发布 PWA 离线版本和浏览器扩展。</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== 广告 ===== -->
-    <div class="ad-container ad-home" style="max-width:960px;margin:24px auto;padding:0 20px;">
-      <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-7632558285398569"
-        data-ad-slot="1111111111"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
+    <div class="ad-section-wrapper" style="max-width:960px;margin:32px auto;padding:0 20px;">
+      <div class="ad-label" style="text-align:center;font-size:.7rem;color:#484f58;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">广告</div>
+      <div class="ad-container ad-home">
+        <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7632558285398569"
+          data-ad-slot="1111111111"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      </div>
     </div>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 

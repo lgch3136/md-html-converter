@@ -92,6 +92,48 @@ body{display:flex;flex-direction:column;background:#0d1117;color:#c9d1d9;overflo
 .ad-container ins{min-width:250px}
 .ad-home{padding:24px 20px;background:#161b22}
 
+/* ===== HOME PAGE: Syntax Reference ===== */
+.syntax-section{padding:50px 20px;max-width:1000px;margin:0 auto;width:100%;border-top:1px solid #21262d}
+.syntax-section h2{font-size:1.6rem;color:#f0f6fc;text-align:center;margin-bottom:10px}
+.section-intro{text-align:center;color:#8b949e;font-size:.9rem;margin-bottom:36px}
+.syntax-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.syntax-card{
+  background:#161b22;border:1px solid #21262d;border-radius:12px;
+  padding:24px;transition:all .2s;
+}
+.syntax-card:hover{border-color:#30363d;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.syntax-card h3{font-size:1rem;color:#58a6ff;margin-bottom:12px}
+.syntax-example{
+  background:#0d1117;border:1px solid #21262d;border-radius:8px;
+  padding:12px 14px;margin-bottom:10px;
+  display:flex;flex-direction:column;gap:4px;
+}
+.syntax-example code{
+  font-size:.78rem;font-family:'JetBrains Mono',Consolas,monospace;
+  color:#c9d1d9;line-height:1.6;
+}
+.syntax-desc{font-size:.8rem;color:#8b949e;line-height:1.6}
+.syntax-desc code{background:#21262d;padding:1px 5px;border-radius:3px;font-size:.85em;color:#ffa657}
+.syntax-tip{
+  margin-top:28px;padding:16px 20px;
+  background:#161b22;border:1px solid #21262d;border-radius:10px;
+  text-align:center;
+}
+.syntax-tip p{color:#8b949e;font-size:.85rem;line-height:1.6}
+
+/* ===== HOME PAGE: FAQ ===== */
+.faq-section{padding:50px 20px;max-width:800px;margin:0 auto;width:100%;border-top:1px solid #21262d}
+.faq-section h2{font-size:1.6rem;color:#f0f6fc;text-align:center;margin-bottom:36px}
+.faq-list{display:flex;flex-direction:column;gap:16px}
+.faq-item{
+  background:#161b22;border:1px solid #21262d;border-radius:10px;
+  padding:20px 24px;transition:all .2s;
+}
+.faq-item:hover{border-color:#30363d}
+.faq-item h3{font-size:.95rem;color:#58a6ff;margin-bottom:8px}
+.faq-item p{font-size:.85rem;color:#8b949e;line-height:1.7}
+.faq-item p strong{color:#c9d1d9}
+
 /* ===== HOME PAGE: Tech ===== */
 .tech-section{padding:50px 20px;max-width:800px;margin:0 auto;width:100%;border-top:1px solid #21262d}
 .tech-section h2{font-size:1.6rem;color:#f0f6fc;text-align:center;margin-bottom:20px}
@@ -255,6 +297,7 @@ main.page-tool{display:flex;flex-direction:column;min-height:0}
   .hero-stats{gap:8px}
   .features-grid{grid-template-columns:1fr;padding:0 16px}
   .scenarios-grid{grid-template-columns:1fr;padding:0 16px}
+  .syntax-grid{grid-template-columns:1fr;padding:0 16px}
   .mdhtml-editor{flex-direction:column}
   .mdhtml-center{flex-direction:row;width:100%;padding:8px 12px;border:none;border-top:1px solid #21262d;border-bottom:1px solid #21262d}
   .mdhtml-sync-btn{flex-direction:row;width:auto;padding:8px 16px;gap:4px}
